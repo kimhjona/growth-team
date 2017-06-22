@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div class='sidebar'>
+      <img src='./../assets/map.png'>
+      <img src='./../assets/teachable-logo.png' class='logoText'>
+      <span class='menuText'>
+        <div class='menuItem background-highlight'>
+          <p>Search Gems</p>
+        </div>
+        <div class='menuItem'>
+          <p>Favorites</p>
+        </div>
+      </span>
+    </div>
+    <div class='content'>
+      <p class='contentText'>Search Gems</p>
+      <p><input class='inputBar' placeholder='Search'></input></p>
+    </div>
+  </body>
+</html>
+
+<style>
+  body {
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  }
+  .inputBar {
+    width: 400px;
+    height: 50px;
+    border-radius: 50px;
+    text-shadow: none;
+    border: 1.5px solid #ccc;
+    padding-left: 25px;
+  }
+  .contentText {
+    padding-left: 25px;
+  }
+  .inputBar:focus {
+    outline:none; 
+  }
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: inline;
+    /*display: flex;
+    justify-content: flex-start;*/
+  }
+  .logoText {
+    position: absolute;
+    right: 40px;
+    top: 30px;
+  }
+  .menuText {
+    position: absolute;
+    right: 0px;
+    top: 350px;
+  }
+  .menuItem {
+    color: white;
+    padding-right: 30px;
+    padding-left: 10px;
+    display: flex;
+    justify-content: flex-start;
+  }
+  .background-highlight {
+    background-color: rgba(255,255,255,0.4)
+  }
+  .content {
+    /*display:flex;
+    justify-content:flex-end;
+    align-items:center;*/
+    /*text-align:right;*/
+    position: fixed;
+    top: 100px;
+    left: 600px;
+  }
+</style>
