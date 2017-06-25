@@ -1,53 +1,92 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitter Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-      <br>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+    <Sidebar></Sidebar>
+    <Search v-if='page'></Search>
+    <Favorites v-else></Favorites>
   </div>
 </template>
 
 <script>
+import Sidebar from './Sidebar';
+import Search from './Search';
+import Favorites from './Favorites';
+
 export default {
   name: 'hello',
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App',
+      page: true,
     };
   },
+  components: {
+    Sidebar,
+    Search,
+    Favorites,
+  },
+  // events: {
+  //   toggle: () => {
+  //     this.page = !this.page;
+  //   },
+  // },
+  // props: ['page'],
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
+<style>
+body {
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+}
+.inputBar {
+  width: 450px;
+  height: 50px;
+  border-radius: 75px;
+  text-shadow: none;
+  border: 1.5px solid #ccc;
+  padding-left: 35px;
+}
+.contentText {
+  padding-left: 35px;
+  text-align:left;
+  font-size: 30px;
+}
+.inputBar:focus {
+  outline:none; 
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: inline;
+  /*display: flex;
+  justify-content: flex-start;*/
+}
+.logoText {
+  position: absolute;
+  right: 40px;
+  top: 35px;
+}
+.menuText {
+  position: absolute;
+  right: 0px;
+  top: 350px;
+  cursor: pointer;
+}
+.menuItem {
+  color: white;
+  padding-right: 45px;
+  padding-left: 18px;
+  display: flex;
+  justify-content: flex-start;
+}
+.background {
+  background-color: rgba(255,255,255,0.4)
+}
+.content {
+  position: fixed;
+  top: 100px;
+  left: 600px;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
 
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
 </style>
